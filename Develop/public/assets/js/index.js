@@ -12,9 +12,6 @@ if (window.location.pathname === "/notes") {
   noteList = document.querySelectorAll(".list-container .list-group");
 }
 
-// Save note click event
-saveNoteBtn.addEventListener("click", handleNoteSave);
-
 // Show an element
 const show = (elem) => {
   elem.style.display = "inline";
