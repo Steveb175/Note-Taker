@@ -15,7 +15,7 @@ module.exports = (app) => {
     let userNote = {
       title: req.body.title,
       text: req.body.text,
-      id: Math.floor(Math.random() * 1000),
+      id: Math.floor(Math.random() * 100000),
     };
     db.push(userNote);
     fs.writeFileSync("db/db.json", JSON.stringify(db));
@@ -25,7 +25,7 @@ module.exports = (app) => {
   // DELETE
   app.delete("/api/notes/:id", (req, res) => {
     let db = JSON.parse(fs.readFileSync("db/db.json"));
-    let deleteNotes = db.filter((item) => item.id !== req.params.id);
+    let deleteNotes = db.filter((item) => item.id !== parseInt(req.params.id));
     fs.writeFileSync("db/db.json", JSON.stringify(deleteNotes));
     res.json(deleteNotes);
   });
